@@ -1,0 +1,84 @@
+$back: royalblue;
+$color: #fdfdfd;
+
+@mixin border($clr, $radius) {
+    border-radius: $radius;
+    border-color: $clr;
+}
+
+@mixin size($width , $height) {
+    width: $width;
+    height: $height;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: $back;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include border($color, 5px);
+    @include size(400px, 350px);
+    margin: 15px;
+    padding: 0px 40px;
+    background-color: $color;
+
+    h5 {
+        align-self: flex-start;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+
+        a {
+            padding: 15px;
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.575);
+            transition: 0.2s;
+        }
+
+        a:first-child{
+            @include border($back, 5px);
+            background-color: $back;
+            color: $color;
+        }
+    }
+
+    input {
+        @include size(350px, 50px);
+        margin: 10px;
+        padding: 0 20px;
+    }
+}
+
+footer {
+    a {
+        text-decoration: none;
+        color: $color;
+        transition: 300ms all;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
